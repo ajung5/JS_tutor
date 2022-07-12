@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Operator Logika di Non Boolean</title>
+</head>
+
+<body>
+
+   <script>
+
+      // OR ||
+      // mengambil nilai dari kiri ke kanan
+      // mengambil nilai pertama yang truthy
+      console.info("Hello" || "");
+      console.info("" || [1, 2]);
+      console.info("0" || "Nol");
+      console.info(0 || "Nol");
+      console.info(null || "Null");
+      console.info(undefined || "Undefined");
+      console.info(0 || false);
+
+      const person = {
+         firstName: "John",
+         middleName: "",
+         lastName: "Doe"
+      };
+
+      const name = person.firstName || person.middleName || person.lastName;
+      console.info(name);
+
+
+      // AND &&
+      // mengambil nilai dari kiri ke kanan
+      // mengambil nilai pertama yang truthy
+      console.info("Hello" && "");
+      console.info("" && [1, 2]);
+      console.info("0" && "Nol");
+      console.info(0 && "Nol");
+      console.info(null && "Null");
+      console.info(undefined && "Undefined");
+      console.info(0 && false);
+
+      const persons = {
+         firstName: "John",
+         middleName: "",
+         lastName: "Doe"
+      };
+
+      const names = persons.firstName && persons.middleName && persons.lastName;
+      console.info(names);
+
+   </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>String Template</title>
+</head>
+
+<body>
+
+   <script>
+
+      const name = "Asep John Doe";
+      const firstName = "Asep";
+      const midName = "John";
+      const lastName = "Doe";
+
+      const template = `Nama : ${firstName} ${midName} ${lastName}`; // string template, subtitusi + dengan variabel
+      const lama = "Nama : " + firstName + " " + midName + " " + lastName; // penulisan lama
+
+      console.info(template);
+      console.info(lama);
+
+      // Expression di string template
+      const nama = "Neng Jane Doe";
+      const value = 80;
+      // const grade = "A";
+
+      const template2 = `Nama : ${nama}, Lulus : ${value > 70}`;
+      console.info(template2);
+      document.write(template2);
+
+
+      // Multiline String
+      const multiLine = `
+      Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+      Aenean commodo ligula eget dolor.
+      Aenean massa. Cum sociis natoque penatibus et magnis dis
+      `;
+
+      document.write("<pre>");
+      document.write(multiLine);
+      document.write("</pre>");
+   </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Tipe Data Objek</title>
+</head>
+
+<body>
+
+   <script>
+
+      // tipe data object
+      // const namaObject = {}
+
+
+      const person = {};
+      // menambah / mengubah object
+      // nama object [properti/atribut] = value;
+      person["nama"] = "John Doe";
+      person["alamat"] = "Wakanda";
+      person["umur"] = 22;
+
+      console.table(person);
+
+      // menghapus attribut
+      delete person["umur"];
+      console.table(person);
+
+      // membuat object dengan properties
+      const orang = {
+         "name": "Ajung Nawawi",
+         address: "Wakanda Selatan",
+         age: 25
+      };
+
+      console.info(`Nama : ${orang.name}`);
+      console.info(`Alamat: ${orang.address}`);
+
+   </script>
+</body>
+
+</html>
