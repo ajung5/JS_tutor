@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Undefined</title>
+</head>
+
+<body>
+
+   <script>
+      // undefined adalah sebuah tipe data
+      // sebuah variabel yang belum ditambahkan nilai, maka artinya variabel tersebut merupakan tipe undefined
+
+      // undefined variabel
+      let name; // Mengecek apakah variabel name undefined / defined
+      if (name === undefined) {
+         console.info("UNDEFINED");
+      } else {
+         console.info("DEFINED");
+      }
+
+      // undefined array value
+      const names = ["John", "Doe"];
+
+      if (names[2] === undefined) { // hasilnya adalah array undefined, karena kita mengakses array ke-3 yg tidak ada di dalam array
+         console.info("Array Undefined");
+      } else {
+         console.info("Array Defined");
+      }
+
+      // undefined object property
+      let person = {
+         name: "Ajung",
+         lastName: "John"
+      };
+
+      if (person.name === undefined) { // hasilnya defined. karena properti object nya udah ke isi
+         console.info("OBJECT UNDEFINED");
+      } else {
+         console.info("OBJECT DEFINED");
+      }
+   </script>
+</body>
+
+</html>

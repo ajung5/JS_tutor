@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Nullish Coalescing Operator</title>
+</head>
+
+<body>
+
+   <script>
+
+      // nullist value adalah null dan undefined
+      // nullist coalescing operator (?) adalah operator mirip dengan ternary operator
+      // yang membedakan adalah pada kondisi, jika bernilai null / undefined, value default nya diambil
+      let parameter;
+      let data = parameter;
+
+      // kode menggunakan if-statement
+      // mengecek apakah variabel "data" null / undefined 
+      if (data === undefined || data === null) { // hasilnya nilai default, karena variabel "data" null / undefined
+         data = "Ini Nilai default";
+      }
+
+      document.write(`<p> ${data} </p>`);
+
+      // diatas dan dibawah ini merupakan contoh konsep nullish coalescing
+
+
+      // berikut adalah contoh sederhana syntax nullish coalescing operator
+      // kode menggunakan nullish coalescing
+      data = parameter ?? "Nilai Default";
+      document.write(`<p> ${data} </p>`);
+
+   </script>
+</body>
+
+</html>

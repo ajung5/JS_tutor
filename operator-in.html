@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>In Operator</title>
+</head>
+
+<body>
+
+   <script>
+
+      const person = {
+         firstName: "John",
+         lastName: "Doe"
+      };
+
+      // mengecek apakah properti "firstName" ada di dalam tipe data objek
+      // dan mengecek apakah "firstName" bukan null
+      if ("firstName" in person && "firstName" !== null) {
+         document.write(`Hello ${person.firstName}`);
+      } else {
+         document.write("Hello");
+      }
+
+      document.write("<br>")
+
+      // in operator hanya mengecek properti di tipe data objek, tanpa melihat value nya
+      const student = {
+         firstName: "John",
+         middleName: undefined,
+         lastName: "Doe"
+      }
+
+      // mengecek apakah properti "middleName" ada di dalam tipe data objek
+      if ("middleName" in student) {
+         document.write(`Hello ${student.middleName}`);
+      } else {
+         document.write("Hello Student");
+      }
+
+      //in operator dalam array
+      const names = ["Jane", "Doe", null];
+      const result = 2 in names;
+      document.write(`<p>${result}</p>`) // true
+
+
+
+   </script>
+</body>
+
+</html>

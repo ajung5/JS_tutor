@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Switch Statement</title>
+</head>
+
+<body>
+
+   <script>
+      // switch statement hanya butuh menggunakan kondisi sederhana seperti hanya menggunakan perbandingan ==
+      const nilai = "A";
+
+      switch (nilai) {
+         case "A":
+            document.write("<p> Wow anda lulus dengan baik </p>");
+            break;
+         case "B": // kode akan dijalankan sampai ketemu break
+         case "C":
+            document.write("<p> Anda lulus </p>");
+            break;
+         case "D":
+            document.write("<p> Anda tidak lulus </p>");
+            break;
+         default:
+            document.write("<p> Mungkin anda salah jurusan </p>");
+            break;
+      }
+   </script>
+</body>
+
+</html>
