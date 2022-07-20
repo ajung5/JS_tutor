@@ -1,26 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Function Return Value</title>
+  </head>
 
-<head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Function Return Value</title>
-</head>
-
-<body>
-
-   <script>
+  <body>
+    <script>
       /*
-      Secara default, function itu tidak menghasilkan value apapun, namun jika kita ingin, kita bisa membuat sebuah function mengembalikan value
-      Agar function bisa menghasilkan value, kita bisa menggunakan kata kunci return di dalam function nya.
-      Dan di dalam block function, untuk menghasilkan nilai tersebut, kita harus menggunakan kata kunci return, lalu diikuti dengan data yang ingin kita hasilkan.
-      Function hanya bisa mengembalikan satu data, jika kita ingin mengembalikan beberapa data sekaligus, kita bisa menggunakan Array sebagai return value nya
-      */
+        Secara default, function itu tidak menghasilkan value apapun, namun jika kita ingin, kita bisa membuat sebuah function mengembalikan value
+        Agar function bisa menghasilkan value, kita bisa menggunakan kata kunci return di dalam function nya.
+        Dan di dalam block function, untuk menghasilkan nilai tersebut, kita harus menggunakan kata kunci return, lalu diikuti dengan data yang ingin kita hasilkan.
+        Function hanya bisa mengembalikan satu data, jika kita ingin mengembalikan beberapa data sekaligus, kita bisa menggunakan Array sebagai return value nya
+        */
 
+      function sayHello(firstName, lasttName) {
+        const say = `Hello ${firstName} ${lasttName}`;
+        return say;
+      }
 
+      // memanggil function dan menangkap return value nya
+      const result = sayHello("John", "Doe");
+      document.write(`<p> ${result}</p>`);
 
-   </script>
-</body>
+      // function retturn value lebih dari satu
+      function getFinalValue(value) {
+        if (value > 90) {
+          return "A";
+        } else if (value > 80) {
+          return "B";
+        } else if (value > 70) {
+          return "C";
+        } else if (value > 60) {
+          return "D";
+        } else {
+          return "E";
+        }
+      }
 
+      // memanggil function  gettFinalValue
+      const finalValue = getFinalValue(95);
+      document.write(`<p>Nilai anda = ${finalValue}</p>`);
+
+      // menghentikan eksekusi dengan return
+      function isContains(array, searchValue) {
+        for (const element of array) {
+          console.info(`Iterasi element ${element}`); // mengecek perulangan padad element array
+          if (element === searchValue) {
+            return true; // mengghentikan perulangan apabila value nya true
+          }
+        }
+        return false;
+      }
+
+      const array = [1, 3, 5, 11, 43, 23124, 444, 43, 3, 5, 10]; // variabel untuk dijadikan parameter "function isContains"
+      const search = 7;
+      const found = isContains(array, search);
+      document.write(`<p>${found}</p>`);
+    </script>
+  </body>
 </html>

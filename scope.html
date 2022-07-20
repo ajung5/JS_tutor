@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scope</title>
+  </head>
+  <body>
+    <script>
+      //global scope
+      let counter = 0;
+
+      function hitMe() {
+        //local scope hitMe
+        counter++;
+      }
+
+      function other() {
+        // local scope other
+      }
+
+      hitMe();
+      hitMe();
+
+      console.info(counter);
+
+      // global scope
+      function first() {
+        // local scope first
+        let firstVariabel = "FIRST";
+        console.info(firstVariabel);
+      }
+
+      //global scope
+      function second() {
+        //local scope second
+        let secondVariabel = "Second";
+        //console.info(firstVariabel); // error
+      }
+
+      first();
+      second();
+
+      //console.info(firstVariabel); // error
+
+      // nested function scope
+      // global scope
+      function pertama() {
+        // local scope function pertama
+        let varibelPertama = "Pertama";
+        function nestedPertama() {
+          console.info(varibelPertama);
+        }
+
+        nestedPertama();
+      }
+    </script>
+  </body>
+</html>
