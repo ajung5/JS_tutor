@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Function Generator</title>
+  </head>
+  <body>
+    <script>
+      // Function generator adalah function yang digunakan untuk membuat data generator
+      // Generator adalah data yang bisa di interasi seperti Array
+      // Untuk membuat function generator, kita perlu menggunakan tanda * (bintang) setelah kata function
+      // Dan untuk mengembalikan data di tiap iterasi, kita bisa gunakan kata kunci yield diikuti datanya
+
+      // function generator sederhana
+      function* createNames() {
+        yield "John";
+        yield "Jane";
+        yield "Mary";
+      }
+
+      const names = createNames();
+      for (const name of names) {
+        document.write(name + "<br>");
+      }
+
+      console.info(createNames());
+
+      // function generator kompleks
+      // Generator itu sifatnya lazy
+      // Jadi artinya jika data nya belum kita ambil dari generator, maka yield selanjutnya tidak akan di eksekusi
+
+      // lazy => data dditarik dulu, baru dilanjut ke yield selanjutnya
+      function* buatGanjil(value) {
+        for (let i = 1; i <= value; i++) {
+          if (i % 2 === 1) {
+            document.write(`Yield ${i}`);
+            yield i;
+          }
+        }
+      }
+
+      const numbers = buatGanjil(50);
+      for (const number of numbers) {
+        document.write(`<p>${number}</p>`);
+      }
+
+      // eager
+      function buatGanjilArray(value) {
+        const result = [];
+        for (let i = 1; i <= value; i++) {
+          if (i % 2 === 1) {
+            document.write(`<p>Yield ${i}</p>`);
+            result.push(i);
+          }
+        }
+        return result;
+      }
+
+      const angkas = buatGanjilArray(50);
+      for (const angka of angkas) {
+        document.write(`<p>${angka}</p>`);
+      }
+    </script>
+  </body>
+</html>

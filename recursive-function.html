@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recursive Function</title>
+  </head>
+  <body>
+    <script>
+      // factorial loop
+      function factorial(value) {
+        let result = 1;
+        for (let i = 1; i <= value; i++) {
+          result *= i;
+        }
+        return result;
+      }
+
+      document.write(factorial(5));
+
+      document.write("<br>");
+
+      // cara nulis recursive function
+      //   function recurse() {
+      //     if (condition) {
+      //       // stop calling itself
+      //       //...
+      //     } else {
+      //       recurse();
+      //     }
+      //   }
+
+      // factorial recursive
+      function factorialRecursive(value) {
+        if (value === 1) {
+          // jika value bernilai 1, maka hasilnya di return ke 1 atau stop
+          return 1;
+        } else {
+          // jika nilai tidak bernilai 1, maka hasilnya akan dikalikan dengan nilai yang ada di dalam function factorialRecursive
+          return value * factorialRecursive(value - 1);
+        }
+      }
+
+      document.write(factorialRecursive(5));
+
+      // 5 * factorialRecursive(5-1) = 20
+      // 5 * 4 * factorialRecursive(4-1) = 60
+      // 5 * 4 * 3 * factorialRecursive(3-1) = 120
+      // 5 * 4 * 3 * 2 * factorialRecursive(2-1) = 120
+      // 5 * 4 * 3 * 2 * 1 = 120
+    </script>
+  </body>
+</html>

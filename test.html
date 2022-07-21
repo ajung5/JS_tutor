@@ -8,17 +8,29 @@
   </head>
   <body>
     <script>
-      function pertama() {
-        // local scope function pertama
-        let varibelPertama = "Pertama";
-        function nestedPertama() {
-          console.info(varibelPertama);
+      // function pertama() {
+      //   // local scope function pertama
+      //   let varibelPertama = "Pertama";
+      //   function nestedPertama() {
+      //     console.info(varibelPertama);
+      //   }
+
+      //   // nestedPertama();
+      // }
+
+      // pertama();
+
+      function* buatGanjil(value) {
+        for (let i = 1; i <= value; i++) {
+          if (i % 2 === 1) {
+            yield i;
+          }
         }
-
-        // nestedPertama();
       }
-
-      pertama();
+      const numbers = buatGanjil(100);
+      for (const number of numbers) {
+        console.info(number);
+      }
     </script>
   </body>
 </html>
