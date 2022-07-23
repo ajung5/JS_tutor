@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Object Method</title>
+  </head>
+  <body>
+    <script>
+      const person = {
+        name: "John",
+        age: 30,
+        sayHello: function (name, age) {
+          console.info(`Hello ${name} ${age}`);
+        },
+      };
+      person.sayHello("Jane", 22);
+
+      // bisa juga menyimpan function nya di luar object
+      function hasRegist(name, npm) {
+        console.info(
+          `Selamat ${name} ${npm} prodi ${mhs.prodi} telah melakukan pendaftaran`
+        );
+      }
+
+      const mhs = {
+        prodi: "Teknik Informatika",
+        bio: hasRegist, // "bio" => nama properti object, "hasRegist" => nama function yg ada diluar object "mhs"
+      };
+
+      mhs.bio("ajung", 12345);
+
+      // atau cara ke tiga, yaitu memanggil objek di dalam function
+
+      const animal = {
+        kingdom: "Mamalia",
+      };
+
+      animal.showAnimal = function (name) {
+        console.info(`Nama Hewan ${name}`);
+      };
+
+      animal.showAnimal(`Singa bukan ${animal.kingdom}`);
+    </script>
+  </body>
+</html>

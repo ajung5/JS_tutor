@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arrow Function</title>
+  </head>
+  <body>
+    <script>
+      // arrow function
+      const sayHello = (name) => {
+        // jika hanya satu parameter, bisa tanpa menggunakan kurung pada parameter
+        const say = `Hello ${name}`;
+        console.info(say);
+      };
+
+      sayHello("John");
+
+      // arrow function tanpa blok kode
+      const helloWorld = (firstName, lastName) =>
+        console.info(`Hello ${firstName} ${lastName} `);
+      helloWorld("Jane", "Doe", "Smith"); // parameter "smith" tidak akan di-execute karena tidak di deklarasikan
+
+      // arrow function return value
+      const sum = (first, second) => {
+        // kode menggunakan keyword return
+        return first + second;
+      };
+
+      console.info(sum(1, 2));
+
+      const sum2 = (first, second) => first + second;
+      console.info(sum2(12, 2));
+
+      // arrow function sebagai parameter fungsi lain
+      //
+    </script>
+  </body>
+</html>
