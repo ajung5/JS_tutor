@@ -8,11 +8,16 @@
   </head>
   <body>
     <script>
+      // Pada tipe data object, kita sudah membahas tentang property di object
+      // Karena sebenarnya function juga merupakan salah satu tipe data, jadi function pun sebenarnya bisa ditambahkan sebagai property di object
+      // Cara pembuatannya pun sama dengan function sebagai value
+      // Function di object kadang disebut juga sebagai Object Method
+
       const person = {
         name: "John",
         age: 30,
-        sayHello: function (name, age) {
-          console.info(`Hello ${name} ${age}`);
+        sayHello: function (nama, umur) {
+          console.info(`Hello ${nama}, umur anda ${umur}`); // nama & umur adalah param dalam function sayHello
         },
       };
       person.sayHello("Jane", 22);
@@ -32,7 +37,6 @@
       mhs.bio("ajung", 12345);
 
       // atau cara ke tiga, yaitu memanggil objek di dalam function
-
       const animal = {
         kingdom: "Mamalia",
       };

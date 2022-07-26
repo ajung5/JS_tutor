@@ -15,6 +15,34 @@
       // Dalam function, this merupakan referensi ke global object (di browser biasanya Window)
       // Di function dengan strict mode (akan dibahas nanti), this adalah undefined
       // Dalam event, this merupakan referensi ke element yang menerima event (dibahas di materi Document Object Model)
+
+      // memanggil kata kunci this dalam scope global
+      console.info(this); // akan muncul di console browser "window"
+
+      function sample() {
+        console.info(this); // akan muncul di console browser "window"
+
+        function inner() {
+          console.info(this); // akan muncul di console browser "window"
+        }
+
+        inner();
+      }
+
+      sample();
+
+      // this di object methods
+      const animal = {
+        kingdom: "Mamalia",
+        age: 30,
+        sayName: function (nama) {
+          console.info(this); // this akan muncul di console browser "person", karena this merupakan referensi dari object pemilik function
+          console.info(`Hello ${nama}! is ${this.kingdom}`); // untuk mengakses properti dari object, gunakan this.properti
+        },
+      };
+
+      animal.sayName("Elephant");
+      animal.sayName("Lion");
     </script>
   </body>
 </html>
