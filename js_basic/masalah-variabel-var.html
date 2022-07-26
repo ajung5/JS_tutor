@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Masalah variabel Var</title>
+</head>
+
+<body>
+  <script>
+    // Sebelumnya sudah dijelaskan bahwa penggunaan var sudah tidak direkomendasikan lagi, dan diganti dengan let
+    // Pertanyaannya kenapa?
+    // Alasan var tidak direkomendasikan digunakan lagi adalah, karena var tidak memiliki block scope, artinya dia tidak mengikat ke local scope yang sebelumnya sudah kita bahas
+    // Karena masalah ini, var bisa tidak terprediksi
+    // Kita akan buat contoh penggunaan var dan let
+
+    // kode: menggunakan let
+
+    // global scope
+    let i = 20;
+
+    for (let i = 0; i < 5; i++) {
+      // kata "let" dalam perulangan ini adalah membuat variabel baru yg bernama "i", meskipun variabel "i" sudah ada di global scope
+      // karena let, maka variabel "i" tidak akan mengikat ke local scope yang sebelumnya sudah kita bahas
+
+      // local scope
+      console.info(`Local ${i}`); // mengakses i di local scope
+    }
+
+    console.info(`Global ${i}`); // mengakses global scope "i", hasilnya 20
+
+    // kode: menggunakan var
+
+    var j = 20;
+
+    for (var j = 0; j < 5; j++) {
+      // local scope
+      console.info(`Local ${j}`); // mengakses j di local scope
+    }
+
+    console.info(`Global ${j}`); // mengakses global scope "j", hasilnya adalah 5
+      // jika menggunakan keyword "var", maka variabel yg ada di dalam global scope seakan-akan ter-override oleh variabel yg ada di local scope
+      // dan hasilnya tidak dapat diprediksi
+  </script>
+</body>
+
+</html>
