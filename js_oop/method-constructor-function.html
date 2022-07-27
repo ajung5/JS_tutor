@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Method di Constructor Function</title>
+  </head>
+  <body>
+    <script>
+      /*
+        Sama seperti pada tipe data object biasanya, kita juga bisa menambahkan method di dalam constructor function
+        Jika kita tambahkan method di constructor function, secara otomatis object yang dibuat akan memiliki method tersebut
+        */
+
+      function Person() {
+        this.firstName = ""; // Property
+        this.lastName = ""; // Property
+        this.sayHello = function (name) {
+          // Method yang ditambahkan di dalam constructor function --> Method ini akan dijalankan ketika object yang dibuat dari constructor function dijalankan
+          console.info(`Hello ${name}, my name is ${this.firstName}`); // Hello <name>, my name is <firstName>
+        };
+        this.dateOfBirth = function validation(date) {
+          // Method yang ditambahkan di dalam constructor function --> Method ini akan dijalankan ketika object yang dibuat dari constructor function dijalankan
+          if (date.getFullYear() < 1900) {
+            console.error("Date of birth must be after 1900");
+          } else {
+            console.info("Date of birth is valid");
+          }
+        };
+      }
+
+      const object1 = new Person();
+      object1.firstName = "John"; // Property firstName diisi dengan value "John"
+      object1.lastName = "Doe"; // Property lastName diisi dengan value "Doe"
+      object1.sayHello("Jane"); // Method sayHello akan dijalankan dengan parameter "Jane"
+      object1.dateOfBirth(new Date(1899, 0, 1)); // Method dateOfBirth akan dijalankan dengan parameter Date(1900, 0, 1)
+    </script>
+  </body>
+</html>

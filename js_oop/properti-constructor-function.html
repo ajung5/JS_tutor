@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Propert Constructor Function</title>
+  </head>
+  <body>
+    <script>
+      // Sebenarnya setelah kita membuat object, kita bisa dengan mudah menambahkan property ke dalam object tersebut hanya dengan menggunakan nama variable nya, diikuti tanda titik dan nama property
+      // Namun jika seperti itu, alhasil, constructor function yang sudah kita buat tidak terlalu berguna, karena property nya hanya ada di object yang kita tambahkan property
+      // Untuk menambahkan property di dalam semua object yang dibuat dari constructor function, kita bisa menggunakan kata kunci this lalu diikuti dengan nama property nya
+
+      function Person() {
+        // Constructor function
+        this.firstName = ""; // Property
+        this.lastName = ""; // Property
+      }
+
+      const object1 = new Person(); // Object 1 berisi property firstName dan lastName yang kosong  (constructor function)
+      object1.firstName = "John"; // Property firstName diisi dengan value "John"
+      object1.lastName = "Doe"; // Property lastName diisi dengan value "Doe"
+
+      const object2 = new Person();
+      object2.firstName = "Jane"; // Property firstName diisi dengan value "Jane"
+
+      console.log(object1); // { firstName: "John", lastName: "Doe" }
+      console.log(object2); // { firstName: "Jane", lastName: "" }
+    </script>
+  </body>
+</html>
