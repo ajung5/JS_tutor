@@ -1,1 +1,3 @@
-document.write("hello");
+//document.write("hello");
+
+console.log("hello");
