@@ -15,11 +15,11 @@
 //   );
 // }
 
-const bitwiseAND = (n1, n2) => n1 & n2;
-const bitwiseOR = (n1, n2) => n1 | n2;
-const bitwiseXOR = (n1, n2) => n1 ^ n2;
+// const bitwiseAND = (n1, n2) => n1 & n2;
+// const bitwiseOR = (n1, n2) => n1 | n2;
+// const bitwiseXOR = (n1, n2) => n1 ^ n2;
 
-console.info(bitwiseAND(7, 12));
+// console.info(bitwiseAND(7, 12));
 
 // function getFirstValue([a, b, c]) {
 //   console.info(`Ini index array ${a}`);
@@ -27,18 +27,17 @@ console.info(bitwiseAND(7, 12));
 
 // getFirstValue([1, 2, 3]);
 
-function getFirstValue(arr) {
-  return arr[0];
-}
+// function getFirstValue(arr) {
+//   return arr[0];
+// }
 
-getFirstValue([1, 2, 3]);
+// getFirstValue([1, 2, 3]);
 
-function Person(first, last, age, eyecolor) {
-  this.firstName = first;
-  this.lastName = last;
-  this.eyeColor = eyecolor;
-}
+// let arr = ["John", "Doe", 1, 2, 4];
 
-Person.prototype.nationality = "English";
+// console.info[0];
 
-console.info(Person(first:"john"));
+let array = [1, 2, 3, 4, "John", "Doe", "Jane"];
+
+console.info(array[0]);
+console.info(array[1]);

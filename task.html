@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Latihan</title>
+  </head>
+  <body>
+    <p id="demo"></p>
+    <script>
+      // const array_name = [item1, item2, ...];
+      const arr = [1, "John", "Doe", true, 5, 6, 7, 8, 9, 10];
+      console.info(arr);
+
+      // menambah isi array
+      arr.push(11);
+      arr[3] = "Jane"; // mengganti isi array pada index 3 dengan "Jane"
+
+      // membuatt array kosong, lalu diisi dengan data
+      const arrayKosong = [];
+      arrayKosong[0] = "Hello"; // menambah isi array pada index 0 dengan "Hello"
+      arrayKosong[1] = "World"; // menambah isi array pada index 1 dengan "World"
+      arrayKosong.push = "!"; // menambah isi array pada index terakhir dengan "!"
+      arrayKosong.unshift = "!"; // menambah isi array pada index pertama dengan "!"
+      arrayKosong.pop = "!"; // menghapus isi array pada index terakhir
+      arrayKosong.shift = "!"; // menghapus isi array pada index pertama
+
+      console.info(arrayKosong);
+      console.info(arrayKosong[0]); // menampilkan isi array pada index 0
+      console.info(arrayKosong.length);
+
+      // Using the JavaScript Keyword new
+      const cars = new Array("Volvo", "BMW", "Ford", "Mazda");
+      console.info(cars);
+      console.table(cars); // meampilkan isi array dalam bentuk table
+      console.info(`Sorting Array cars ${cars.sort()}`); // mengurutkan isi array
+      console.info(`Panjang array: ${cars.length}`);
+
+      // Looping Array
+      const fruits = ["Banana", "Orange", "Apple", "Mango"];
+      let fLen = fruits.length;
+
+      let text = "<ul>";
+      for (let i = 0; i < fLen; i++) {
+        text += "<li>" + fruits[i] + "</li>";
+      }
+      text += "</ul>";
+
+      document.getElementById("demo").innerHTML = text;
+
+      for (let i = 0; i < fruits.length; i++) {
+        // perulangan untuk menampilkan isi array fruits
+        console.info(` Perualangan array ${fruits[i]}`);
+      }
+
+      const animals = ["dog", "cat", "bird", "fish"];
+      // foreach untuk menampilkan isi array animals
+      let perulangan = animals.forEach(myFunction); // memanggil function myFunction
+
+      // function myFunction
+      function myFunction(value) {
+        console.info(` Perulangan array ${value}`);
+      }
+    </script>
+  </body>
+</html>
