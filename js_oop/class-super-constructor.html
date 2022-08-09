@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class Super Constructor</title>
+  </head>
+  <body>
+    <script>
+      // Class Inheritance sifatnya seperti Prototype Inheritance
+      // Bagaimana dengan Constructor Inheritance? Sebenarnya Constructor Inheritance hanyalah melakukan eksekusi constructor lain dengan tujuan agar property di constructor lain bisa ditambahkan ke instance object ini
+      // Dalam kasus ini, jika kita ingin mencapai hasil yang sama, kita bisa menggunakan kata kunci super di dalam constructor
+      // Kata kunci super digunakan untuk memanggil constructor super class
+      // Jika di child class kita membuat constructor, maka kita wajib memanggil parent constructor, walaupun di parent tidak ada constructor
+
+      // kode super constructor
+      class Employee {
+        // employee class adalah parent class
+        constructor(firstName, age) {
+          // constructor adalah method yang pertama kali dijalankan ketika object dibuat
+          this.firstName = firstName;
+          this.age = age;
+        }
+
+        sayHello(name) {
+          return `Hello ${name}, I am ${this.firstName} and i am ${this.age} years old`;
+        }
+      }
+
+      class Manager extends Employee {
+        // manager class adalah child class
+        constructor(firstName, age, department) {
+          // constructor child class
+          super(firstName, age); // super digunakan untuk memanggil constructor parent class
+          this.department = department;
+        }
+
+        sayHello(name) {
+          return `Hello ${name}, I am ${this.firstName} manager from ${this.department}`;
+        }
+      }
+
+      objt1 = new Employee("John", 30);
+      //objt1.sayHello("John"); // Hello John, I am John from undefined
+      console.info(objt1.sayHello("Ujang")); // Hello Ujang,i am John and i am 30 years old
+
+      objt2 = new Manager("Jane", 25, "IT");
+      console.info(objt2.sayHello("Alena")); // Hello Jane, I am Jane manager from IT
+    </script>
+  </body>
+</html>

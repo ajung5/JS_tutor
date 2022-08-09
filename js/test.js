@@ -34,3 +34,17 @@ function calculateDaysBetweenDates(begin, end) {
     }
     xhr.send(JSON.stringify(data));
 }
+
+function matchHouses(step) {
+	if (step === 0) {
+    return 0
+  } else if (step < 0 || typeof step !== "number") {
+    return "The input (step) will always be a non-negative integer."
+  } else {
+    let a;
+    a = (5 * step) + 1;
+    return a;
+  }
+}
+
+matchHouses(3);

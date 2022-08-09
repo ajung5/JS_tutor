@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class Inheritance</title>
+  </head>
+  <body>
+    <script>
+      // Sebelumnya kita sudah tahu bahwa prototype mendukung pewarisan, walaupun agak sedikit tricky cara pembuatannya
+      // Untungnya itu diperbaiki di ES6 dengan fitur class nya
+      // Sebuah class bisa melakukan pewarisan dari class lainnya dengan menggunakan kata kunci extends
+      // Di JavaScript, class inheritance sama seperti prototype inheritance, hanya bisa memiliki satu parent class
+      class Employee {
+        constructor(name, salary) {
+          this.name = name;
+          this.salary = salary;
+        }
+
+        sayHello(name) {
+          console.info(`Hello ${name}, my name is employee ${this.name}`);
+        }
+      } // end of class Employee
+
+      class Manager extends Employee {
+        // sayHello(name) {
+        //   console.info(
+        //     `Hello ${name}, my name is manager ${this.name} and my salary is ${this.salary}`
+        //   );
+        // }
+      } // end of class Manager
+
+      const obj1 = new Employee();
+      obj1.name = "Jane";
+      obj1.sayHello("John"); // Hello John, my name is employee John
+
+      const obj2 = new Manager();
+      obj2.name = "Ujang";
+      obj2.sayHello("Hadi"); // Hello hadi, my name is manager Ujang and my salary is undefined
+
+      const obj3 = new Manager("Jane", 100000);
+      obj3.sayHello("John"); // Hello John, my name is manager Jane and my salary is 100000
+
+      console.info(obj1 instanceof Employee); // true
+      console.info(obj2 instanceof Employee); // true
+
+      console.info(obj1); // Employee {name: "Jane", salary: undefined}
+      console.info(obj2); // Manager {name: "Ujang", salary: undefined}
+      console.info(obj3); // Manager {name: "Jane", salary: 100000}
+    </script>
+  </body>
+</html>

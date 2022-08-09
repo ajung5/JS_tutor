@@ -8,23 +8,26 @@
   </head>
   <body>
     <script>
-      /*
-          Sama seperti pada tipe data object biasanya, kita juga bisa menambahkan parameter di dalam constructor function
-          Jika kita tambahkan parameter di constructor function, secara otomatis object yang dibuat akan memiliki parameter tersebut
-          */
+      // Karena dalam JavaScript, class adalah berbentuk function, jadi secara default,
+      // function tersebut bisa memiliki parameter
+      // Constructor function sama seperti function biasanya, bisa memiliki parameter,
+      //hal ini membuat ketika kita membuat object, kita bisa mengirim langsung data lewat parameter di constructor function tersebut
+
       function Person(firstName, lastName) {
-        this.firstName = firstName; // Property
-        this.lastName = lastName; // Property
+        this.namaDepan = firstName; // Property namaDepan diisi dengan value "firstName"
+        this.namaBelakang = lastName; // Property namaBelakang diisi dengan value "lastName"
         this.sayHello = function (name) {
           // Method yang ditambahkan di dalam constructor function
           console.info(
-            `Hello ${name}, my name is ${this.firstName} ${lastName}`
+            `Hello ${name}, my name is ${this.namaDepan} ${this.namaBelakang}`
           ); // Hello <name>, my name is <firstName> <lastName>
         };
       }
 
       const obj1 = new Person("John", "Doe"); // Object yang dibuat dari constructor function dengan parameter "John" dan "Doe"
       obj1.sayHello("Jane"); // Method sayHello akan dijalankan dengan parameter "Jane"
+
+      obj1.sayHello("Ujang"); // Method sayHello akan dijalankan dengan parameter "Ujang"
     </script>
   </body>
 </html>

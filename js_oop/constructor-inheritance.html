@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Constructor Inheritance</title>
+  </head>
+  <body>
+    <script>
+      // Dalam constructor kita biasanya membuat property baik itu berisi value ataupun function
+      // Di dalam constructor, kita bisa memanggil constructor lain, dengan begitu kita bisa mewarisi semua property yang dibuat di constructor lain tersebut
+      // Untuk memanggil constructor lain, kita bisa menggunakan NamaConstructor.call(this, parameter)
+
+      // kode inheritance dari constructor
+      function Employee(firstName, age, job) {
+        this.namaDepan = firstName;
+        this.umur = age;
+        this.pekerjaan = job;
+        this.sayHello = function (name) {
+          console.info(
+            `Hello ${name}, my name is ${this.namaDepan} jabatan saya ${this.pekerjaan}`
+          );
+        };
+      }
+
+      function Manager(firstName, age, job, department) {
+        // constructor manager yang memiliki parameter yang sama dengan constructor employee --> constructor employee memiliki parameter firstName, age, job
+        this.department = department; // property department diisi dengan value "department"
+        employee.call(this, firstName, age, job); // memanggil constructor employee dengan parameter "firstName, age, job" --> constructor employee memiliki parameter firstName, age, job
+        console.info(`dan saya di department ${this.department}`);
+      }
+
+      const obj1 = new manager("John", 30, "Programmer", "IT"); // Object yang dibuat dari constructor manager dengan parameter "John", 30, "Programmer" --> constructor manager memiliki parameter "John", 30, "Programmer"
+      obj1.sayHello("Jane"); // Method sayHello akan dijalankan dengan parameter "Jane" --> Method sayHello akan dijalankan dengan parameter "Jane"
+      console.info(obj1);
+    </script>
+  </body>
+</html>

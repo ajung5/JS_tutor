@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prototype</title>
+  </head>
+  <body>
+    <script>
+      // JavaScript sebelumnya dikenal dengan pemrograman berbasis prototype
+      // Memang agak sedikit membingungkan, dan tidak dipungkiri, banyak sekali yang bingung dengan konsep prototype di JavaScript
+      // Pada chapter ini, kita akan bahas tentang konsep prototype
+      // Prototype adalah sebuah property yang menyimpan referensi ke sebuah object
+
+      // Kode: Prototype
+      function Person(firstName, lastName) {
+        this.namaDepan = firstName;
+        this.namaBelakang = lastName;
+        this.sayHello = function (name) {
+          console.info(
+            `Halo ${name}, nama saya ${this.namaDepan} ${this.namaBelakang}`
+          );
+        };
+      }
+
+      // Saat kita membuat object dari constructor function, object tersebut disebut instance, semua property (baik itu value atau method), akan berada di dalam instance object nya
+      // Setiap kita membuat sebuah constructor function, maka secara otomatis akan dibuatkan prototype nya, misal ketika kita membuat constructor function Person, maka akan ada Person.prototype
+      // Saat kita membuat sebuah object instance, secara otomatis object tersebut adalah turunan dari Constructor.prototype nya
+      // Untuk mengakses prototype milih sebuah instance, kita bisa menggunakan __proto__
+
+      // kode object instance
+      const john = new Person("John", "Doe");
+      const ujang = new Person("Ujang", "Hadi");
+
+      console.log(john);
+      console.log(ujang);
+
+      john.sayHello("Jane");
+
+      // Menambah property ke prototype
+      Person.prototype.sayGoodBye = function () {
+        console.info(`Say Good Bye`);
+      };
+
+      Person.prototype.run = function () {
+        console.info(`${this.namaDepan} sedang berlari`);
+      };
+
+      // Property mirip object, dimana kita bisa menambah property baik itu value ataupun method
+      // Saat kita menambah sebuah property ke Prototype, secara otomatis,
+      // semua object instance yang turunan dari prototype tersebut akan memiliki property tersebut
+
+      // Kode: Menambah property ke instance object
+      const alena = new Person("Alena", "Doe");
+      // ini hanya untuk instance alena
+      alena.sayGoodBye = function (nama) {
+        // prototype nya adalah Person.prototype hanya ada di alena
+        console.info(
+          `Halo ${nama}, nama saya ${this.namaDepan} ${this.namaBelakang}`
+        );
+
+        // alena.sayGoodBye = function () {
+        //   console.info(`Sampai Jumpa`);
+        // };
+      };
+      console.log(alena);
+
+      john.sayGoodBye(); // mengakses method sayGoodBye di prototype
+      // alena.sayBye("Jane"); // mengakses method sayBye di prototype inherited dari Person.prototype
+      alena.run(); // mengakses method run di prototype
+      ujang.run(); // mengakses method run di prototype
+      alena.sayGoodBye("Jane"); // karena sayGoodBye ada di prototype object, maka akan mengakses method sayGoodBye di prototype instance objectnya
+
+      // cara kerja Prototype inheritance
+      // Bagaimana bisa property di prototype diakses dari object instance?
+      // Ketika kita mengakses property di object instance, pertama akan di cek apakah di object tersebut terdapat property tersebut atau tidak, jika tidak, maka akan di cek di __proto__ (prototype) nya, jika masih tidak ada, akan di cek lagi di __proto__ (prototype) yang lebih tinggi, begitu seterusnya, sampai berakhir di Object Prototype
+    </script>
+  </body>
+</html>
