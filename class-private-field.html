@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class: Private Field</title>
+  </head>
+  <body>
+    <script>
+      // Secara default, saat kita menambahkan field, maka field tersebut bisa diakses dari manapun
+      // Jika kita ingin membuat field yang bersifat private (hanya bisa diakses di dalam class), kita bisa menggunakan tanda # sebelum nama field nya
+      // Ini dinamakan private class field, dan hanya bisa diakses dari dalam class saja
+
+      class Counter1 {
+        #counter = 0;
+      }
+
+      const penghitung = new Counter1();
+      penghitung.counter = 2;
+      console.info(penghitung.counter); // 2
+      console.info(penghitung);
+
+      class Counter {
+        #counter = 0;
+        increment() {
+          this.#counter++;
+        }
+        decrement() {
+          this.#counter--;
+        }
+        get() {
+          return this.#counter;
+        }
+      }
+
+      const konter = new Counter();
+      konter.increment(); // counter = counter + 1
+      konter.increment(); // counter = counter + 1
+      konter.increment(); // counter = counter + 1
+      konter.increment(); // counter = counter + 1
+      konter.increment(); // counter = counter + 1
+      konter.increment(); // counter = counter + 1
+
+      konter.decrement(); // counter = counter - 1
+
+      console.info(konter.get());
+      konter.count = 2; // hanya akan merubah nilai counter jika kita menggunakan properti count
+      // konter.#counter = 21; // error karena kita tidak bisa mengakses properti counter dengan tanda # diluar class
+      console.info(konter); // 5
+    </script>
+  </body>
+</html>
