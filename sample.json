@@ -1,0 +1,6 @@
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "address": { "country": "Wakanda", "city": "Subang" },
+  "hobbies": ["Game", "Business", "Reading", "Education", "Traveling"]
+}

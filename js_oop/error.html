@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Error</title>
+  </head>
+  <body>
+    <script>
+      // Error
+      // Saat membuat aplikasi, sudah tentu kita tidak akan terhindar dari yang namanya error
+      // Di JavaScript, Error merupakan sesuatu yang sudah standar
+      // Banyak sekali class error di JavaScript, namun semua class error di JavaScript selalu berujung di class Error,
+      // artinya class Error adalah superclass untuk semua jenis error di JavaScript
+      // Contoh class error yang terdapat di JavaScript contohnya SyntaxError, TypeError, EvalError, dan lain-lain
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error#error_types
+
+      // Throw Error
+      // Saat membuat aplikasi, sudah tentu kita tidak akan terhindar dari yang namanya error
+      // Di JavaScript, Error merupakan sesuatu yang sudah standar
+      // Banyak sekali class error di JavaScript, namun semua class error di JavaScript selalu berujung di class Error,
+      // artinya class Error adalah superclass untuk semua jenis error di JavaScript
+      // Contoh class error yang terdapat di JavaScript contohnya SyntaxError, TypeError, EvalError, dan lain-lain
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error#error_types
+
+      class MathUtil {
+        static sum(...numbers) {
+          if (numbers.length === 0) {
+            throw new Error(
+              "Total parameter harus lebih dari 0 atau tidak boleh kosong"
+            );
+          } // jika terjadi error, maka akan langsung menghentikan program
+
+          let total = 0;
+          for (const number of numbers) {
+            total += number;
+          }
+          return total;
+        }
+      }
+
+      const result = MathUtil.sum(1, 2, 3, 4, 5);
+      console.info(result); // 15
+
+      // Throw Error
+      console.info(MathUtil.sum()); // Error: Total parameter harus lebih dari 0 atau tidak boleh kosong
+    </script>
+  </body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test</title>
+  </head>
+  <body>
+    <script>
+      // nth
+      function getNth(a, n) {
+        // let a = "";
+        if (a[n - 1] === " ") {
+          console.info(`index ke ${n} dari string ${a} adalah "SPASI"`);
+        } else if (n > a.length) {
+          console.info(
+            `Upps... Sepertinya index ${n} lebih besar dari panjang string ${a}`
+          );
+        } else {
+          console.info(`index ke ${n} dari string ${a} adalah "${a[n - 1]}"`);
+        }
+
+        //return a.charAt(n - 1);
+      }
+      // const nth = getNth("abcdefg", 3);
+      // console.info(getNth("John Doe", 6));
+      getNth("John Doe", 6); // memanggil function getNth()
+      getNth("akjbfakjdbfkab asd afkjsdbf ddf", 12);
+
+      // perbandingan
+      function perbandingan(a, b) {
+        if (a < b) {
+          console.info(
+            `Nilai ${a} lebih kecil dari ${b}, jadi ${b} / ${a} = ${b / a}`
+          );
+          //return b / a;
+        } else {
+          return a * b;
+        }
+      }
+
+      console.info(perbandingan(10, 5));
+      perbandingan(2, 10);
+
+      // mencari jumlah string
+      function getHalfString(a) {
+        console.info(`String ${a} memiliki panjang ${a.length}`);
+        return a.slice(0, a.length / 2);
+      }
+
+      console.info(getHalfString("John Doe"));
+      console.info(getHalfString("Ajung Nawawi Nugraha"));
+      getHalfString("Ujang Hadi");
+
+      // persentase
+      function getPercentage(a, b) {
+        //console.info(`${a} dibagi ${b} adalah ${a / b}`);
+
+        return (b / 100) * a;
+      }
+
+      console.info(getPercentage(100, 50));
+      console.info(getPercentage(10, 1));
+      console.info(getPercentage(500, 25));
+
+      // mencari angka genap
+      function angkaGenap(a) {
+        if (a % 2 === 0) {
+          console.info(`${a} adalah angka genap`);
+        } else {
+          console.info(`${a} adalah angka ganjil`);
+        }
+      }
+
+      angkaGenap(10);
+
+      // operasi matematika
+      function math(a, b, c, d, e, f) {
+        return (((a + b - c) * d) / e) ** f;
+      }
+
+      console.info(math(6, 5, 4, 3, 2, 1));
+      console.info(math(6, 2, 1, 4, 2, 3));
+      console.info(math(2, 3, 6, 4, 2, 3));
+
+      // concatenate string
+      function concatString(a, b) {
+        return a.includes(b) ? b + a : a + b;
+      }
+
+      console.info(concatString(" think, therefore I am", "I"));
+
+      // menghitung jumlah karakter di string dengan dua parameter
+      function countChar(a, b) {
+        console.info(
+          `String = ${b}, memiliki jumlah karakter ${a} = ${
+            b.split(a).length - 1
+          }`
+        );
+        return b.split(a).length - 1;
+      }
+
+      console.info(countChar("o", "Hello World"));
+      console.info(
+        countChar(
+          "m",
+          "how many times does the character occur in this sentence?"
+        )
+      );
+      console.info(
+        countChar(
+          "h",
+          "how many times does the character occur in this sentence?"
+        )
+      );
+
+      // mmengecek number desimal atau bukan
+      function isDecimal(a) {
+        // return Number.isInteger(a);
+        return a - Math.floor(a) === 0;
+      }
+
+      console.info(isDecimal(10.1)); // false, karena 10.1 bukan desimal
+      console.info(isDecimal(4)); // true, karena 4 adalah desimal
+
+      // membulatkan angka
+      function roundNumber(a) {
+        // return Math.round((a + Number.EPSILON) * 100) / 100;
+        return a.toFixed(2); // mengambil 2 angka di belakang koma
+      }
+
+      console.info(roundNumber(2.12397));
+
+      // split number
+      function splitNumber(a) {
+        // return Array.from(String(a), Number);
+        const string = a + "";
+        const strings = string.split("");
+        return strings.map((digit) => Number(digit));
+      }
+
+      console.info(splitNumber(12345));
+      console.info(splitNumber(42124768));
+
+      // inserting string at index
+      function insertString(a, b) {
+        // return a.replace(/(?=(...)+$)/g, b);
+        let result = [];
+        let rest = a;
+        while (rest.length) {
+          result.push(rest.slice(-3));
+          rest = rest.slice(0, -3);
+        }
+        return result.reverse().join(b);
+      }
+      console.info(insertString("abcde", "$"));
+      console.info(insertString("123456789", "."));
+      console.info(insertString("zxyzxyzxyzxyzxyz", "$"));
+
+      // join string
+      function clearChaos(a, b) {
+        // cara 1
+        // const str = a
+        //   .concat(b.split("").reverse().join(""))
+        //   .replaceAll(/[^a-zA-Z ]/g, "");
+        // return str[0].toUpperCase() + str.slice(1);
+
+        // cara 2
+        const func = (x) => x.replace(/[^a-zA-Z ]/g, "");
+        const first = func(a);
+        const second = func(b).split("").reverse().join("");
+        return first.charAt(0).toUpperCase() + first.slice(1) + ` ${second}`;
+      }
+
+      console.info(clearChaos("java", "tpi%*$rcs"));
+      console.info(clearChaos("c%ountry", "edis"));
+      console.info(clearChaos("down", "nw%ot"));
+
+      // bilangan prima
+      function bilanganPrima(a) {
+        let result = [];
+        for (let i = 1; i <= a; i++) {
+          let isPrime = true;
+          for (let j = 2; j < i; j++) {
+            if (i % j === 0) {
+              isPrime = false;
+              break;
+            }
+          }
+          if (isPrime) {
+            result.push(i);
+          }
+        }
+        return result;
+      }
+
+      console.info(bilanganPrima(50));
+    </script>
+  </body>
+</html>

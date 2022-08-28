@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Challenge Array</title>
+  </head>
+  <body>
+    <script>
+      const arr = ["Banana", "Apples", "Oranges", "Blueberries"];
+      console.info(arr[1]);
+
+      function getNthElement(a, n) {
+        // let a = [];
+        return a[n - 1];
+      }
+
+      console.info(getNthElement([1, 2, 3, 4, 5], 3));
+
+      // remove element di array
+      function removeElement(a) {
+        console.info(
+          `Isi array sebelum dihapus ${a}, dan seteleh dihapus ${a.slice(3)}`
+        );
+        return a.slice(3);
+      }
+
+      console.info(removeElement(["a", "b", "c", "d", "e"]));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+Master modern web development by building a responsive React JS application consisting of a stunning hero section, high-quality assets and gradients, business stats, reusable feature sections with call-to-action buttons, testimonials, and more!
+
+⭐ Hostinger - http://hostinger.com/javascriptmastery
+⭐ Discount Code - JAVASCRIPTMASTERY
+
+📙 Get the ultimate free resources, guides, and eBooks: https://www.jsmastery.pro/resources
+
+Showcase your dev skills with practical experience and land the coding career of your dreams:
+💻 JS Mastery Pro - https://jsmastery.pro/youtube
+✅ A unique YOUTUBE discount code is automatically applied!
+
+📚 Materials/References:
+GitHub Code (give it a star ⭐): https://github.com/adrianhajdin/proje...
+Figma Design: https://www.figma.com/file/bUGIPys15E...
+GitHub Gist Code Snippets: https://gist.github.com/adrianhajdin/...
+Assets: https://minhaskamal.github.io/DownGit...
+Filmpire course - https://www.jsmastery.pro/ultimate-re...
+
+🎨 Design by: https://www.oneweekwonders.com | https://dribbble.com/OWWStudio
+
+In this course, you’ll learn:
+- React functional components and their reusability
+- React file and folder structure
+- You’ll achieve mastery using Tailwind CSS
+- Fundamental CSS properties to master flex
+- From soft and pleasant animations to complex gradients
+- Perfectly placed media queries for satisfactory responsiveness on all devices
+- And at the end, you'll learn how to deploy your websites to extremely fast servers and give them a custom domain name using Hostinger
+
+💻 Join JSM on Discord - https://discord.gg/n6EdbFJ
+🐦 Follow JSM on Twitter - https://twitter.com/jsmasterypro
+🖼️ Follow JSM Instagram - https://instagram.com/javascriptmastery

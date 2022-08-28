@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Static Class Field</title>
+  </head>
+  <body>
+    <script>
+      // static adalah kata kunci yang bisa kita tambahkan sebelum field atau method,
+      // biasannya ketika kita membuat field atau method, maka secara otomatis field akan menjadi property di instance object,
+      // dan method akan menjadi function di prototype
+      // Jika kita tambahkan static, maka hal itu tidak terjadi
+
+      // kode tanpa menggunakan static
+      class Configuration {
+        name = "Belajar JavaScript OOP";
+        version = "1.1.0";
+        author = "Ajung Nawawi";
+      }
+
+      const config = new Configuration();
+      console.info(config);
+
+      // kode static
+      class Watermark {
+        static content = "Ini Watermark";
+        static version = "1.0.0";
+        static author = "Ajung Nawawi";
+      }
+
+      const watermark = new Watermark();
+      console.info(watermark);
+      console.info(watermark.content); // undefined, karena field static bukan termasuk ke object "watermark"
+
+      // mengakses static field
+      console.info(Watermark.content); // Ini Watermark
+      console.info(Watermark.version); // 1.0.0
+      console.info(Watermark.author); // Ajung Nawawi
+
+      // mengubah isi dari field static
+      Watermark.content = "Ini Watermark Baru";
+      console.info(Watermark.content); // Ini Watermark Baru
+    </script>
+  </body>
+</html>
