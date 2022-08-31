@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number</title>
+  </head>
+  <body>
+    <script>
+      // Number merupakan function yang digunakan untuk melakukan konversi ke tipe data number
+      // Jika data tidak bisa dikonversi ke number, secara otomatis hasilnya adalah NaN
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
+
+      const input = "12345";
+      const konversiKeNumber = Number(input);
+
+      console.info(typeof input);
+      console.info(typeof konversiKeNumber);
+      console.info(konversiKeNumber);
+
+      console.info(Number("asasdda"));
+
+      // number static properties
+      // Number memiliki banyak static properties, seperti :
+      // Number.MIN_VALUE untuk mendapat number minimal
+      // Number.MAX_VALUE untuk mendapat number maksimal
+      console.info(Number.MIN_VALUE);
+      console.info(Number.MAX_VALUE);
+      console.info(Number.EPSILON); // menampilkan nilai epsilon yang digunakan untuk menentukan apakah 2 nilai berada diantara 2 nilai yang sama
+      console.info(Number.MIN_SAFE_INTEGER); // menampilkan nilai minimal safe integer
+      console.info(Number.MAX_SAFE_INTEGER);
+
+      // number static methods
+      // Number memiliki banyak static method, seperti :
+      // Number.isNaN(value) untuk mengecek apakah value NaN atau bukan
+      // Number.isInteger(value) untuk mengecek apakah value berupa integer atau bukan
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number#static_methods
+      const data = Number("12345");
+      console.info(Number.isNaN(data));
+      console.info(Number.isInteger(data));
+
+      // number instance method
+      // Number memiliki banyak instance method, seperti :
+      // Number.toLocalString(locale) untuk mengubah number menjadi string sesuai locale : https://www.lansweeper.com/knowledgebase/list-of-currency-culture-codes/
+      // Number.toString(radix) untuk mengubah number menjadi string sesuai radix
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number#instance_methods
+
+      const value = Number("12345");
+      console.info(value.toString(2)); // merubah "value" menjadi string sesuai radix 2 "binary"
+      console.info(value.toLocaleString("id-ID")); // merubah ke string sesuai locale
+    </script>
+  </body>
+</html>

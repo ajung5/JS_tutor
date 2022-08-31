@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reflect</title>
+  </head>
+  <body>
+    <script>
+      // Reflect merupakan class yang digunakan untuk mengeksekusi JavaScript function
+      // Reflect tidak memiliki constructor, dan cara penggunaan Reflect tidak dengan membuat object dengan new Reflect
+      // Penggunaan Reflect adalah menggunakan banyak sekali static methodnya
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect
+
+      const person = {};
+
+      Reflect.set(person, "firstName", "John"); // Reflect.set(namaObject, property, value)
+      Reflect.set(person, "lastName", "Doe");
+
+      console.info(person);
+
+      // mengecek isi sebuah object tanpa harus menyentuh objek nya
+      console.info(Reflect.get(person, "firstName")); // target, property
+      console.info(Reflect.get(person, "lastName"));
+
+      console.info(Reflect.has(person, "firstName"));
+      console.info(Reflect.has(person, "middleName")); // false
+    </script>
+  </body>
+</html>

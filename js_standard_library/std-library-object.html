@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>STD Library Object</title>
+  </head>
+  <body>
+    <script>
+      // Tipe data object sudah sering sekali kita bahas di JavaScript Dasar dan JavaScript OOP
+      // Pada materi ini, kita akan bahas banyak static method yang terdapat pada Object
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
+
+      // # Object Freeze & Seal
+      // Secara default, object bisa diubah atau dihapus properties nya
+      // Jika kita ingin mengubah sebuah object menjadi object yang tidak bisa diubah atau dihapus, kita bisa menggunakan beberapa static method
+      // Object.freeze() digunakan untuk mengubah object menjadi object yang tidak bisa diubah atau dihapus attribute nya
+      // Object.seal() digunakan untuk mengubah object menjadi object yang tidak bisa dihapus attribute nya
+
+      const person = {
+        firstName: "John",
+        lastName: "Doe",
+      };
+
+      Object.freeze(person); // object person di freeze, sehingga tidak bisa diubah atau dihapus attribute nya
+
+      person.firstName = "Jane";
+      delete person.lastName;
+
+      console.info(person); // object person di freeze
+
+      const cars = {
+        type: "SUV",
+        fuel: "Gasoline",
+      };
+
+      Object.seal(cars); // object cars di seal, sehingga dihapus attribute nya
+
+      cars.type = "Sport"; // atribut "type" pada object cara diganti menjadi "Sport"
+      delete cars.fuel;
+
+      console.info(cars);
+
+      // #Object assign
+      // Kadang kita ada kasus menggabungkan semua attribute dari sebuah object ke object lain
+      // Hal ini bisa kita lakukan dengan menggunakan Object.assign(target, source)
+      const vehicles = {
+        type: ["Cars", "Motorcycle", "Bus", "Truck"],
+        brands: ["Audi", "Ferrari"],
+      };
+
+      const hasVehicle = {
+        name: "John",
+        age: 22,
+      };
+
+      Object.assign(vehicles, hasVehicle);
+      console.info(`${vehicles.name} memiliki kendaraan ${vehicles.brands[0]}`);
+
+      // # Object Property name & value
+      // Object juga memiliki static method untuk digunakan mengambil semua properties names dan values
+      // Object.values() digunakan untuk mengambil semua property value
+      // Object.getPropertyNames() digunakan untuk mengambil semua properti name
+
+      console.info(Object.values(vehicles));
+      console.info(Object.getOwnPropertyNames(vehicles)); // [type, brands, name, age]. karena object vehicles sudah di assign dengan opbject hasVehicle
+    </script>
+  </body>
+</html>

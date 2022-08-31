@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Date</title>
+  </head>
+  <body>
+    <script>
+      // JavaScript memiliki tipe data untuk representasi waktu dan tanggal, yaitu Date
+      // Date merupakan representasi milisecond sejak tanggal 1 Januari 1970, atau dikenal dengan Epoch & Unix Timestamp
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
+
+      //   new Date();
+      console.info(new Date()); // menampilkan tanggal saat ini
+
+      // (Year, Month, Day)
+      const ultah = new Date(1996, 09, 26);
+      console.info(ultah);
+
+      // (Year, Month, Day, Hour, Minute, Second)
+      const ultah2 = new Date(1994, 05, 15, 17, 30, 15);
+      console.info(ultah2);
+
+      // # Epoch & Unix Timestamp
+      // Dalam menggunakan tipe data waktu, biasanya disemua bahasa pemrograman akan mendukung yang namanya epoch & unix timestamp
+      // Epoch & Unix timestamp merupakan hitungan miliseconds setelah tanggal  1 Januari 1970
+      // JavaScript pun mendukung pembuatan waktu dalam bentuk epoch dan unix timestamp
+      // Untuk mendapatkan waktu saat ini dalam epoch & unix timestamp, kita bisa menggunakan Date.now()
+      // Untuk mengubah dari object date ke epoch & unix timestamp, kita bisa menggunakan function getTime()
+
+      // kode Epoch & unix timestamp
+      console.info(new Date().getTime()); // menampilkan format epoch & unix timestamp
+
+      // (Year, Month, Day)
+      console.info(ultah.getTime()); //
+
+      // # Parsing Date
+      // Kita juga bisa melakukan parsing membuat date dari string menggunakan method Date.parse(value)
+      // Format string harus YYYY-MM-DDTHH:mm:ss.sssZ
+      // Dimana jika kita hanya membuat date berisi tanggal saja, kita cukup gunakan YYYY-MM-DD
+      // Jika date dengan tanggal dan waktu, gunakan YYYY-MM-DDTHH:mm:ss.sss
+      // Jika date dengan tanggal, waktu dan timezone, gunakan YYYY-MM-DDTHH:mm:ss.sssZ
+      // Hasil parsing adalah unix timestamp, bukan object date
+
+      // Kode Parsing Time
+      const parseTimestamp = Date.parse("2006-01-21T08:36:46.122+07:00"); // mengubah timestamp ke unix timestamp
+      console.info(parseTimestamp);
+
+      const date = new Date(parseTimestamp);
+      console.info(date);
+
+      // # Date getter and setter
+      // banyak sekali method untuk mendapatkan informasi date dan juga mengubah informasi date, atau istilahnya adalah getter dan setter
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date#instance_methods
+
+      // kode getter and setter date
+      const date1 = new Date();
+      date1.setMonth(8); // melakukan set date "month" ke bulan 8
+
+      console.info(date1.getFullYear());
+      console.info(date1.getMonth());
+      console.info(date1.getDay());
+      console.info(date1.getHours());
+      console.info(date1.getMinutes());
+      console.info(date1.getSeconds());
+      console.info(date1.getTimezoneOffset());
+    </script>
+  </body>
+</html>

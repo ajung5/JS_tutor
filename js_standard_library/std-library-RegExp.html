@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Regular Epression</title>
+  </head>
+  <body>
+    <script>
+      // RegExp merupakan implementasi dari regular expression di JavaScript
+      // Regular expression merupakan fitur untuk mencari text dengan pola
+      // Membuat regular expression di JavaScript bisa dilakukan dengan dua cara, yaitu menggunakan literal notation atau membuat object RegExp
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp
+      // regex adalah  case sensitive
+
+      {
+        // # membuat kode regexp
+        const regex1 = /[john]/;
+        const regex2 = new RegExp("john");
+        const regex3 = new RegExp(/john/);
+      }
+
+      {
+        const name = "John Doe Jane Doe";
+        const regex4 = /Doe/;
+
+        // Eksekusi regex, jika menemukan data sesuai pola,
+        // maka kembalikan result nya, jika tidak maka null
+        const result = regex4.exec(name);
+        console.info(result);
+
+        // Eksekusi regex, jika menemukan data sesuai pola, maka return true, jika tidak maka false
+        const test = regex4.test(name);
+        console.info(test);
+      }
+
+      {
+        // RegExp modifier
+        // RegExp memiliki modifier untuk mengubah sifat cara pencarian
+
+        // i => Regex menjadi incase sensitive
+        // g => Pencarian dilakukan secara global, secara default setelah menemukan data, pencarian akan berhenti
+        // m => Pencarian dilakukan secara global, secara default setelah menemukan data, pencarian akan berhenti
+
+        const names = "john Doe \nJet Lee\nJohn Lennon";
+        const regex11 = /john/gi;
+        const regex22 = /Lee/g;
+        let result;
+        while ((result = regex11.exec(names)) !== null) {
+          console.info(result);
+        }
+      }
+
+      {
+        // Fitur RegExp Lainnya (Advacne RegExp)
+        //const regex1 = RegExp("foo*", "g");
+        const regex1 = /foo*/g;
+        const str1 = "table football, foosball";
+        let array1;
+
+        while ((array1 = regex1.exec(str1)) !== null) {
+          console.log(
+            `Found ${array1[0]}. Next starts at ${regex1.lastIndex}.`
+          );
+          // expected output: "Found foo. Next starts at 9."
+          // expected output: "Found foo. Next starts at 19."
+        }
+
+        const regex5 = /ek[aiueo]/gi;
+        const text = "eko ado eki eka ejo emi elo eke";
+
+        while ((result = regex5.exec(text)) !== null) {
+          console.info(result);
+        }
+      }
+
+      // RegExp di String
+      const string = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, accusamus.
+        Beatae magni atque iste. Ad tempore libero id quidem molestias at quas.`;
+
+      // Mencari semua data yang sesuai dengan regex
+      console.info(string.match(/[aiueo]m/gi)); // ['em', 'um', 'am', 'am', 'em', 'em']
+
+      // Mencari index data yang sesuai dengan regex
+      console.info(string.search(/[aiueo]m/gi)); // 3 => karena pada index ke 3 , data yang sesuai dengan regex sudah ketemu
+
+      // Mengubah data dengan value yang sesuai regex
+      console.info(string.replace(/[aiueo]m/gi, "Replace"));
+      // LorReplace ipsReplace dolor sit Replaceet consectetur adipisicing elit. Dolores, accusReplaceus.
+      // Beatae magni atque iste. Ad tReplacepore libero id quidReplace molestias at quas.
+
+      // Mengubah semua data dengan value yang sesuai regex
+      console.info(string.replaceAll(/[aiueo]m/gi, "Replace"));
+
+      // Memotong string dengan regex
+      // melakukan split data yangg ada di dalam varibel "string" dengan karakter "em"
+      console.info(string.split(/em/gi));
+    </script>
+  </body>
+</html>

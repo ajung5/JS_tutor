@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proxy</title>
+  </head>
+  <body>
+    <script>
+      // Proxy merupakan fitur yang bisa digunakan sebagai wakil sebuah data
+      // Dengan menggunakan proxy, semua interaksi ke data akan selalu melalui Proxy terlebih dahulu
+      // Dengan ini, kita bisa melakukan apapun sebelum interaksi dilakukan ke data yang dituju
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy
+
+      // Pembuatan Proxy perlu menggunakan handler, dimana dalam handler, kita bisa membuat function yang dinamakan interceptor yang digunakan ketika mengambil data atau mengubah data ke target
+      // Untuk membuat Proxy, kita bisa menggunakan new Proxy(target, handler)
+
+      const target = {};
+
+      // kode membuat handler
+      const handler = {
+        get: function (target, property) {
+          // membuat log get
+          console.info(`Accessing Property ${property}`);
+          return target[property];
+        },
+
+        set: function (target, property, value) {
+          // membuat log set
+          console.info(`Change Property ${property}: ${value}`);
+          if (value === undefined) {
+            throw new Error(`Property ${property} is undefined`);
+          } else if (value === null){
+            throw new Error(`Property ${property} is null`);
+          } else {
+            target[property] = value;
+          }
+        },
+      };
+
+      const proxy = new Proxy(target, handler);
+      proxy.firstName = "John"; // Property firstName diisi dengan value "John
+      proxy.lastName = "Doe"; // Property lastName diisi dengan value "Doe
+      proxy.age = 16;
+      proxy.address = "Somewhere";
+
+      console.info(proxy.firstName);
+      console.info(proxy.lastName);
+      console.info(proxy.age);
+      console.info(proxy.address);
+    </script>
+    </script>
+  </body>
+</html>

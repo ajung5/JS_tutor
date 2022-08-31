@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String standard library</title>
+  </head>
+  <body>
+    <script>
+      // String instance method dan properties
+      // String sendiri memiliki banyak sekali instance method dan properties
+      // Hal ini menjadikan untuk memanipulasi data String sangat mudah di JavaScript,
+      // seperti mengubah menjadi lowercase, UPPERCASE, memotong string menjadi array dan lain-lain
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#instance_methods
+
+      const kalimat = "Lorem Ipsum dolor sit amet, consectetur adipis";
+
+      // Character acces
+      console.info(kalimat.charAt(1)); // output: o
+      console.info(kalimat[1]);
+
+      // string primitives dan strings object
+      const stringPrimiteve = "abcdefghijklmnopqrstuvwxyz";
+      const strObj = new String();
+
+      console.info(typeof stringPrimiteve); // string
+      console.info(typeof strObj); // object
+
+      console.log(stringPrimiteve.length); // length 26
+
+      // String primitives and String objects also give different results when using eval().
+      // Primitives passed to eval are treated as source code;
+      // String objects are treated as all other objects are, by returning the object.
+      const s1 = "2 + 2"; // creates a string primitive
+      const s2 = new String("2 + 2"); // creates a String object
+      console.log(eval(s1)); // returns the number 4
+      console.log(eval(s2)); // returns the string "2 + 2"
+      console.info(eval(s2.valueOf())); // returns the number 4
+
+      // string constructor
+      // The String constructor is used to create a new String object.
+      // When called instead as a function, it performs type conversion to a primitive string,
+      // which is usually more useful.
+      const a = new String("Hello world"); // a === "Hello world" is false
+      const b = String("Hello world"); // b === "Hello world" is true
+      a instanceof String; // is true
+      b instanceof String; // is false
+      typeof a; // "object"
+      typeof b; // "string"
+
+      console.info(a instanceof String);
+      console.info(b instanceof String);
+      console.info(typeof a);
+      console.info(typeof b);
+
+      // static method
+
+      // String.raw()
+      // Returns a string created from a raw template string.
+      //   The static String.raw() method is a tag function of template literals.
+      //   This is similar to the r prefix in Python, or the @ prefix in C# for string literals.
+      //   It's used to get the raw string form of template literals — that is,
+      //   substitutions (e.g. ${foo}) are processed, but escape sequences (e.g. \n) are not.
+
+      // Create a variable that uses a Windows
+      // path without escaping the backslashes:
+      const filePath = String.raw`C:\Development\profile\aboutme.html`;
+
+      console.log(`The file was uploaded from: ${filePath}`);
+      // expected output: "The file was uploaded from: C:\Development\profile\aboutme.html"
+
+      // instance properties
+      //   The length property of a String object contains the length of the string,
+      //   in UTF-16 code units.
+      //   length is a read-only data property of string instances.
+
+      const str = "Life, the universe and everything. Answer:";
+
+      console.log(`${str} ${str.length}`); // expected output: "Life, the universe and everything. Answer: 42"
+
+      // instance method
+      // String.prototype.at()
+      //   The at() method takes an integer value and returns a new String consisting of the single UTF-16 code unit located at the specified offset.
+      //   This method allows for positive and negative integers.
+      //   Negative integers count back from the last string character.
+
+      const sentence = "The quick brown fox jumps over the lazy dog.";
+      let index = 5;
+      console.log(
+        `Using an index of ${index} the character returned is ${sentence.at(
+          index
+        )}`
+      );
+      // expected output: "Using an index of 5 the character returned is u"
+
+      index = -4;
+
+      console.log(
+        `Using an index of ${index} the character returned is ${sentence.at(
+          index
+        )}`
+      );
+      // expected output: "Using an index of -4 the character returned is d"
+
+      // String.prototype.charAt()
+      //   The String object's charAt() method returns a new string consisting of the single UTF-16 code unit
+      //   located at the specified offset into the string.
+      const sentences = "The quick brown fox jumps over the lazy dog.";
+      const index2 = 5;
+      console.info(
+        `The character at index ${index2} is ${sentences.charAt(index2)}`
+      );
+    </script>
+  </body>
+</html>

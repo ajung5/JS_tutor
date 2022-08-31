@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array standard library</title>
+  </head>
+  <body>
+    <script>
+      // Tipe data Array sudah kita bahas di materi JavaScript Dasar
+      // Namun kita hanya membahas beberapa instance method yang ada di Array
+      // Sebenarnya, terdapat banyak sekali Instance Method yang ada di Array, dan kita akan coba bahas beberapa di sini
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+      // Array loop
+      // Sebelumnya kita biasa menggunakan for in dan for of untuk melakukan iterasi Array,
+      // namun Array juga memiliki method yang bernama forEach()
+      // Method forEach bisa digunakan juga untuk melakukan iterasi data array
+
+      const arr = ["John", "Doe", 28, "IT", "Jl. Bandung"];
+
+      arr.forEach((value, index) => console.info(`${value} = ${index}`)); //
+      arr.forEach((value) => console.info(`ini value nya ${value}`));
+
+      // array queue / antrian
+      // Dalam struktur data, terdapat tipe struktur data bernama Queue (Antrian)
+      // Dimana data masuk akan diposisikan di urutan paling belakang
+      // Sedangkan data keluar akan diposisikan dari urutan paling depan
+      // Mirip sekali dengan antrian, atau istilahnya FIFO (first in first out)
+      // Kita bisa menggunakan Array dengan bantuan function "push()" untuk menambah data di belakang, dan
+      // "shift()" untuk mengambil dan menghapus data paling depan
+
+      const queue = [];
+      queue.push("John");
+      queue.push("Doe");
+      queue.push("Ghazaly");
+
+      console.info(queue.shift()); // John
+      console.info(queue.shift()); // Doe
+      console.info(queue.shift()); // Ghazaly
+      console.info(queue.shift()); // undefined
+
+      // array stack
+      // Struktur data Stack (Tumpukan) kebalikan dari Queue, dimana aturannya mirip dengan tumpukan kartu
+      // Saat kita memasukkan data, kita akan memasukkan di urutan paling belakang (atau atas)
+      // Sedangkan saat kita mengambil data, kita akan mengambil data dari paling belakang (atau atas) terlebih dahulu
+      // Stack ini sifatnya LIFO (last in first out)
+      // Untuk menambah diurutan belakang, kita bisa menggunakan function push()
+      // Dan untuk mengambil dan menghapus paling belakang, kita bisa menggunakan function pop()
+
+      const stack = [];
+      stack.push("John");
+      stack.push("Doe");
+      stack.push("Ghazaly");
+
+      console.info(stack.pop()); // Ghazaly
+      console.info(stack.pop()); // Doe
+      console.info(stack.pop()); // John
+      console.info(stack.pop()); // undefined
+
+      // array search
+
+      const source = [
+        "Volvo",
+        "BMW",
+        "Toyota",
+        "Honda",
+        "Mercedes",
+        "Ferrari",
+        "Audi",
+        "Ferrari",
+        "Lamborghini",
+        "Porsche",
+      ];
+      const search = "Audi";
+      const input = [
+        3, 4, 2, 1, 5, 6, 8, 9, 7, 10, 2, 5, 1, 3, 4, 6, 7, 8, 9, 10,
+      ];
+
+      // find(value => boolean) : value
+      // Mencari data sesuai dengan kondisi
+      console.info(source.find((value) => value === search)); // BMW
+      console.info(input.find((value) => value > 2)); // 3, karena 3 lebih besar dari 2. dan angka 2 ada di dalam array
+      console.info(input.find((value) => value > 11)); // undefined, karena angka 11 tidak ada di dalam array
+
+      // find index
+      // findIndex(value => boolean) : number
+      // Mencari data index sesuai dengan kondisi
+      console.info(input.findIndex((value) => value > 3)); // 1, karena angka 1 ada di index 3
+      console.info(source.findIndex((value) => value === search)); // 5, karena data "Audi" ada di index 5
+      console.info(source.findIndex((value) => value === "Chevrolet"));
+      console.info(source.findIndex((value) => value === "Jaguar")); // -1, karena data "Chevrolet" tidak ada di dalam array
+
+      // includes(value) : boolean
+      // Mengecek apakah terdapat data
+      console.info(input.includes(2)); // true, karena 2 ada di dalam array
+      console.info(source.includes("Nissan")); // false, karena data "Nissan" tidak ada di dalam array
+
+      // indexOf(value) : number
+      // Mencari posisi index data
+      console.info(input.indexOf(9)); // 7, karena angka "9" ada di index 7
+      console.info(source.indexOf("Ferrari")); // 5, karena data "Ferrari" ada di index 5. Jadi array search akan mencari data yang sama dari index pertama
+
+      // lastIndexOf(value) : number
+      // Mencari posisi index data terakhir
+      console.info(input.lastIndexOf(10)); // 19, karena angka "10" ada di index 10
+      console.info(source.lastIndexOf("Audi")); // 6, karena data "Audi" ada di index 6. Jadi array search akan mencari data yang sama dari index terakhir
+
+      // array filter
+      // filter(value => boolean) : Array
+
+      console.info(input.filter((value) => value > 3)); // [4, 5, 6, 7, 8, 9, 10, 5, 4, 6, 7, 8, 9, 10]
+      console.info(input.filter((value) => value % 2 === 1)); // [3, 1,5,9,7,5,1,3,7,9]
+      console.info(input.filter((value) => value > 3 && value < 10)); // [4, 5, 6, 7, 8, 9, 10]
+      console.info(input.filter((value) => value % 2 === 0));
+
+      // array transform
+      // map(value => result) : Array<result>
+      //Melakukan transform tiap value dan menghasilkan array result
+      const names = "Johan Doe Rachmad Hermawan".split(" ");
+      console.info(names.map((value) => value.toUpperCase())); // ["JOHAN", "DOE", "RACHMAD", "HERMAWAN"]
+      console.info(names.reduce((before, value) => before + " " + value)); // "Johan Doe Rachmad Hermawan"
+
+      // reduce(resultBefore, value => resultAfter) : resultAfter
+      // Melakukan transform dengan menggunakan value array dan value selanjutnya,
+      // lalu hasilnya dilanjutkan ke iterasi selanjutnya
+      const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      const nama = ["Jane", "Ayu", "Fariha", "Yulianti"];
+
+      console.info(
+        `Isi array number ${numbers}, setelah di transform menggunakan reduce : ${numbers.reduce(
+          (before, value) => before + value
+        )}`
+      );
+      console.info(
+        numbers.reduce(
+          (reduceBefore, redduceAfter) => reduceBefore + " " + redduceAfter
+        )
+      );
+
+      console.info(
+        `Isi array ${nama}, setelah di transform menggunakan reduce menjadi ${nama.reduce(
+          (beforeReduce, afterReduce) => beforeReduce + " " + afterReduce
+        )}`
+      ); // "Jane Ayu Fariha Yulianti"
+
+      // pertama, mengambil parameter beforeReduce = "Jane", dan parameter afterReduce = "Ayu"
+      // kedua, mengambil parameter beforeReduce = "Jane Ayu", dan parameter afterReduce = "Fariha"
+      // ketiga, mengambil parameter beforeReduce = "Jane Ayu Fariha", dan parameter afterReduce = "Yulianti"
+
+      // reduceRight(resultBefore, value => resultAfter) : resultAfter
+      // Sama seperti reduce(), namun dilakukan dari belakang
+
+      document.write(
+        `Isi array ${nama}, setelah di reduceRight() menjadi ${nama.reduceRight(
+          (before, after) => before + " " + after
+        )}`
+      ); // "Yulianti Fariha Ayu Jane"
+      // pertama, mengambil parameter before = "Yulianti", dan parameter after = "Fariha"
+      // kedua, mengambil parameter before = "Yulianti Fariha", dan parameter after = "Ayu"
+      // ketiga, mengambil parameter before = "Yulianti Fariha Ayu", dan parameter after = "Jane"
+    </script>
+  </body>
+</html>

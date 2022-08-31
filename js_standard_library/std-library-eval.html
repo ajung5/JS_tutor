@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eval</title>
+  </head>
+  <body>
+    <script>
+      // Eval merupakan function yang digunakan untuk mengeksekusi kode JavaScript dari String
+      // Fitur ini sangat menarik, namun perlu hati-hati ketika menggunakannya
+      // Jika sampai salah penggunaan, maka bisa jadi kita malah mengeksekusi kode program yang bisa menyebabkan masalah keamanan di website kita
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval
+
+      const script = "alert('Anda dihack!!')";
+      eval(script);
+    </script>
+  </body>
+</html>
