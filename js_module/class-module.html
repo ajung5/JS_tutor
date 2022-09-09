@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class Module</title>
+  </head>
+  <body>
+    <script type="module">
+      // Selain function dan juga variable, di module juga kita bisa menambahkan class
+      // Secara default, class tersebut hanya bisa diakses dari dalam module nya saja, tidak bisa diluar module
+      // Jika kita ingin mengekspos class yang kita buat, kita juga bisa menggunakan kata kunci export di awal deklarasi class nya
+      import { Person } from "../js_module/js/class.js";
+
+      const person = new Person("John", 23);
+      person.sayHi("Selamat Pagi");
+    </script>
+  </body>
+</html>

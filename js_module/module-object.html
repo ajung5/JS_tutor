@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Object Module</title>
+  </head>
+  <body>
+    <script type="module">
+      // # Module Object
+      // Ketika sebuah module berisikan banyak sekali export data, maka melakukan import satu persatu akan terlihat berantakan
+      // Rekomendasinya ketika kita ingin mengimport module yang sangat banyak export data nya, gunakan Module Object
+      // Module Object sederhananya adalah object JavaScript yang berisi attribute hasil yang di export pada module
+      // Cara membuat module object bisa kita lakukan misal seperti ini :import * as NamaModule from “./module.js”
+      // Selanjutnya kita bisa gunakan NamaModule sebagai object untuk module tersebut
+
+      import * as obj1 from "../js_module/js/module-object.js";
+
+      // memanggil module variabel "firstName" sebagai object "obj1"
+      console.info(obj1.firstName);
+
+      console.info(obj1.lastName);
+
+      // memanggil module function "hello()" sebagai object "obj1"
+      obj1.hello("Jane Doe");
+
+      //
+      const person = new obj1.Person();
+    </script>
+  </body>
+</html>

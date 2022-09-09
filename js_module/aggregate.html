@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aggregagte</title>
+  </head>
+  <body>
+    <script type="module">
+      // Ada waktunya kadang kita ingin meng agregate beberapa module menjadi satu agar penggunaannya lebih sederhana
+      // Jika module sudah banyak, maka ketika butuh banyak kode dari banyak module, kita harus sebutkan nama module tersebut tiap kalo import
+      // Dengan melakukan aggregate, kita bisa membuat module aggregate, yang isinya menggabungkan export dari module lain
+      // Caranya sangat mudah, cukup gunakan perintah :export {a, b, c} from “./module.js”
+
+      import {
+        Person,
+        sum,
+        sayHello,
+        sayGoodBye,
+      } from "../js_module/js/aggregate-module.js";
+
+      const person = new Person("Jane", 17);
+      person.sayHi("Selamat Malam");
+
+      sayHello("John");
+      sayGoodBye("Asep");
+
+      console.info(sum(7, 7));
+    </script>
+  </body>
+</html>

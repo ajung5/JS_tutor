@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Module</title>
+  </head>
+  <body>
+    <input type="text" id="name" placeholder="Name" />
+    <input type="text" id="message" placeholder="Message" />
+    <input type="button" value="Greeting" id="sayButton" />
+
+    <script type="Module">
+      document.getElementById("sayButton").onclick= function(){
+        const nama = document.getElementById("name").value;
+        const pesan = document.getElementById("message").value;
+
+        // melakukan import ketika di klik
+        import("../js_module/js/alert.js").then(function(module){
+          module.alertHello(nama, pesan)
+        })
+              };
+    </script>
+  </body>
+</html>

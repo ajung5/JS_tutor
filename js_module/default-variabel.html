@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Default Variabel</title>
+  </head>
+  <body>
+    <script type="module">
+      // # export default
+      // Sampai saat ini, kita selalu melakukan export dengan nama, baik itu nama variable, function dan yang lainnya
+      // Ada juga fitur yang bernama export default,
+      // ini adalah fitur yang digunakan untuk mempermudah untuk membuat default data di module, dan membantu JavaScript agar kompatibel dengan CommonJS dan AMD module system
+
+      // # cara export default
+      // export default namaFunction;
+      // export default function(){ ... }
+      // export default namaVariable;
+      // export default namaVariable = value;
+      // export default NamaClass;
+      // export default class { ... }
+
+      // # cara import default
+      // import aliasFunction from “./module-default.js”
+      // import {default as aliasVariable} from “./module-default.js”
+      // import aliasVariable from “./module-default.js”
+      // import {default as aliasVariable} from “./module-default.js”
+      // import AliasClass from “./module-default.js”
+      // import {default as AliasClass} from “./module-default.js”
+
+      // seakan-akan import (name as nameDefault) from "../js_module/js"
+      import nameDefault from "../js_module/js/default-variabel.js";
+
+      console.info(nameDefault);
+    </script>
+  </body>
+</html>
