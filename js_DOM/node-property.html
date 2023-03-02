@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Node Property</title>
+  </head>
+  <body>
+    <ul id="menu">
+      <li id="first">Ini Yang pertama</li>
+      <li id="second">ini yang kedua</li>
+      <li id="third">ini yang ketiga</li>
+    </ul>
+
+    <script>
+      // # Node Property
+      // Node memiliki banyak sekali property
+      // Property di Node banyak berisi informasi reference ke Node lain nya, seperti ke node parent nya, node children nya atau node sebelahnya
+      // https://developer.mozilla.org/en-US/docs/Web/API/Node#properties
+
+      const menu = document.getElementById("menu"); // mengambil seluruh value pada id="menu" (node parent)
+      console.info(menu);
+      console.info(menu.childNodes);
+
+      const child = document.getElementById("first"); // hanya mengambil value pada id="first" (node child)
+      console.info(child);
+      console.info(child.textContent); // mengambil value text content
+      console.info(child.previousSibling);
+      console.info(child.nextSibling.nextSibling);
+    </script>
+  </body>
+</html>

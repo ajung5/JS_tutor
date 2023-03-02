@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Attribute</title>
+  </head>
+  <body>
+    <img id="logo" width="250" height="100" />
+  </body>
+  <script>
+    // Attr atau attribute merupakan representasi dari attribute sebuah element, atau singkatnya
+    // key-value, key nya adalah nama attribute, dan value nya adalah value attribute
+    // https://developer.mozilla.org/en-US/docs/Web/API/Attr
+
+    // =================================================================
+    // Untuk membuat Attr, kita bisa menggunakan document.createAttribute(name)
+    // Lalu untuk menambahkannya ke Element, kita bisa gunakan element.setAttributeNode(attr)
+    // Atau kita juga bisa langsung membuat Attr langsung dengan name dan value nya menggunakan element.setAttribute(name, value)
+
+    const logo = document.getElementById("logo");
+    const src = document.createAttribute("src");
+    src.value = "/assets/img/logo-pertamina-hitam-putih-2048x659.png";
+    logo.setAttributeNode(src);
+
+    // # simple way
+    logo.setAttribute("alt", "Ikon Dashboard");
+  </script>
+</html>

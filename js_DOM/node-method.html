@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Node Method</title>
+  </head>
+  <body>
+    <ul id="menu">
+      <li id="first">Ini Yang pertama</li>
+      <li id="second">ini yang kedua</li>
+      <li id="third">ini yang ketiga</li>
+    </ul>
+
+    <script>
+      // # Node Method
+      // Node memiliki banyak sekali method
+      // Method di Node bisa digunakan untuk memanipulasi data Node di dalam Node tersebut, misal menambah/menghapus Node children
+      // https://developer.mozilla.org/en-US/docs/Web/API/Node#properties
+
+      const menu = document.getElementById("menu"); // mengambil seluruh value pada id="menu" (node parent)
+      console.info(menu);
+      menu.removeChild(document.getElementById("first")); // menghapus child node id="first"
+    </script>
+  </body>
+</html>

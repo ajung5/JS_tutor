@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Element Property</title>
+  </head>
+  <body>
+    <div id="content" class="konten">
+      <h1>Belajar Dom</h1>
+      <p>Deskripsi</p>
+    </div>
+    <script>
+      // #Element Property
+      // Element memiliki banyak sekali property
+      // Dan karena Element adalah turunan dari Node, semua property Node pun bisa digunakan di Element
+      // https://developer.mozilla.org/en-US/docs/Web/API/Element#properties
+
+      const content = document.getElementById("content");
+
+      console.info(content.id);
+      console.info(content.className);
+      console.info(content.tagName); // menampilkan tag dari id content
+    </script>
+  </body>
+</html>

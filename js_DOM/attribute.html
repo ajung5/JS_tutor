@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attribute</title>
+  </head>
+  <body>
+    <img
+      src="/assets/img/logo-pertamina-hitam-putih-2048x659.png"
+      alt="Ikon Dashboard"
+      id="logo"
+      width="250"
+      height="100"
+    />
+  </body>
+  <script>
+    // Attr atau attribute merupakan representasi dari attribute sebuah element, atau singkatnya
+    // key-value, key nya adalah nama attribute, dan value nya adalah value attribute
+    // https://developer.mozilla.org/en-US/docs/Web/API/Attr
+
+    const logo = document.getElementById("logo");
+    const source = logo.getAttributeNode("src");
+
+    console.info(source.name, "nama", source.value);
+    console.info(source.value);
+
+    // =================================================================
+    // Kadang kebanyakan programmer ingin langsung mendapatkan value Attr
+    // Jarang sekali menggunakan object Attr nya
+    // Untuk mendapatkan value secara langsung, kita bisa menggunakan method getAttribute(name) di Element
+    const alt = logo.getAttribute("alt");
+    console.info(alt);
+  </script>
+</html>
